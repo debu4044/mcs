@@ -1,0 +1,20 @@
+clc;
+clear all;
+close all;
+
+% Initial seed
+reg = [1 0 0 1];
+
+fprintf('PN Sequence: ');
+
+for i = 1:15
+
+    fprintf('%d', reg(4));
+
+    feedback = xor(reg(4), reg(1));
+
+    reg = [feedback reg(1:3)];
+
+end
+
+fprintf('\n');
