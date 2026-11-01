@@ -1,0 +1,41 @@
+clc;
+clear all;
+close all;
+
+% Input binary sequence
+input_bits = [1 0 1 1 0 1];
+
+% Initialize shift register (K=3)
+shift_reg = [0 0];
+
+% Initialize encoded output
+encoded = [];
+
+fprintf('Input Bits: ');
+disp(input_bits);
+
+for i = 1:length(input_bits)
+
+    % Current input bit
+    current = input_bits(i);
+
+    % Form register [current previous1 previous2]
+    reg = [current shift_reg];
+
+    % Generator outputs
+    % G1 = 111
+    out1 = mod(reg(1) + reg(2) + reg(3), 2);
+
+    % G2 = 101
+    out2 = mod(reg(1) + reg(3), 2);
+
+    % Append outputs
+    encoded = [encoded out1 out2];
+
+    % Update shift register
+    shift_reg = [current shift_reg(1)];
+
+end
+
+fprintf('Encoded Bits: ');
+disp(encoded);
