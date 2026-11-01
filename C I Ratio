@@ -1,0 +1,24 @@
+clc;
+clear all;
+close all;
+
+% Cluster sizes
+N = [1 3 4 7 9 12 13 16 19];
+
+% Path loss exponent
+n = 4;
+
+% Calculate C/I ratio
+CI = ((sqrt(3*N)).^n) / 6;
+
+% Display results
+disp("Cluster Size (N)    C/I Ratio");
+disp([N' CI']);
+
+% Plot graph
+plot(N, CI, '-o');
+
+xlabel("Cluster Size (N)");
+ylabel("C/I Ratio");
+title("Effect of Cluster Size on C/I Ratio");
+grid on;
