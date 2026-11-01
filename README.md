@@ -1,2 +1,2 @@
 # mcs
-Disclaimer : Use for practicing and personal use only. 
+Disclaimer : Use for practicing and personal use only.
