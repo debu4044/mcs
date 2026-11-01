@@ -1,0 +1,30 @@
+clc;
+clear all;
+close all;
+
+N = 4;
+
+H = hadamard(N);
+
+disp("Hadamard Matrix:");
+disp(H);
+
+disp("Walsh Code:");
+
+W = hadamard(N);
+
+W1 = H(1,:);
+disp("Walsh Code 1:");
+disp(W1);
+
+W2 = H(2,:);
+disp("Walsh Code 2:");
+disp(W2);
+
+W3 = H(3,:);
+disp("Walsh Code 3:");
+disp(W3);
+
+W4 = H(4,:);
+disp("Walsh Code 4:");
+disp(W4);
