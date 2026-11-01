@@ -1,0 +1,43 @@
+% CDMA Implementation
+
+clc;
+clear all;
+close all;
+
+% Data bits of User 1 and User 2
+d1 = [1 -1 1 1];
+d2 = [-1 1 1 -1];
+
+% Spreading codes (Orthogonal codes)
+c1 = [1 1 1 1];
+c2 = [1 -1 1 -1];
+
+% Spread User 1 data
+s1 = kron(d1, c1);
+
+% Spread User 2 data
+s2 = kron(d2, c2);
+
+% Add both users
+x = s1 + s2;
+
+disp("User 1:");
+disp(s1);
+
+disp("User 2:");
+disp(s2);
+
+disp("CDMA Signal:");
+disp(x);
+
+% Recover User 1
+r1 = sum(reshape(x,4,[]) .* c1',1) / 4;
+
+% Recover User 2
+r2 = sum(reshape(x,4,[]) .* c2',1) / 4;
+
+disp("Recovered User 1:");
+disp(r1);
+
+disp("Recovered User 2:");
+disp(r2);
